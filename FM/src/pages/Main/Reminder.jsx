@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TrendingUp, Plus, Bell, Calendar, Clock, ChevronDown, ChevronUp, Filter, Search, Edit2, Trash2, Check, X, Menu, Home, CreditCard, Users, Settings, LogOut, PieChart, AlertCircle, Repeat } from 'lucide-react';
+import Sidebar from '../../components/Sidebar';
 
 export default function Reminder() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -261,61 +262,10 @@ export default function Reminder() {
     }
   };
 
-  const navigation = [
-    { name: 'Dashboard', icon: Home, href: '#', current: false },
-    { name: 'Transactions', icon: CreditCard, href: '#', current: false },
-    { name: 'Groups', icon: Users, href: '#', current: false },
-    { name: 'Reminders', icon: Bell, href: '#', current: true },
-    { name: 'Calendar', icon: Calendar, href: '#', current: false },
-    { name: 'Reports', icon: PieChart, href: '#', current: false }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-gradient-to-b from-blue-600 to-purple-700 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 ease-in-out`}>
-        <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-6 border-b border-white/20">
-            <div className="flex items-center space-x-3">
-              <div className="bg-white p-2 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
-              </div>
-              <span className="text-xl font-bold text-white">FinManager</span>
-            </div>
-            <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-white">
-              <X className="w-6 h-6" />
-            </button>
-          </div>
-
-          <nav className="flex-1 p-4 space-y-2">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition ${
-                  item.current
-                    ? 'bg-white/20 text-white'
-                    : 'text-white/80 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                <item.icon className="w-5 h-5" />
-                <span className="font-medium">{item.name}</span>
-              </a>
-            ))}
-          </nav>
-
-          <div className="p-4 border-t border-white/20 space-y-2">
-            <a href="#" className="flex items-center space-x-3 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition">
-              <Settings className="w-5 h-5" />
-              <span className="font-medium">Settings</span>
-            </a>
-            <a href="#" className="flex items-center space-x-3 px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white rounded-lg transition">
-              <LogOut className="w-5 h-5" />
-              <span className="font-medium">Logout</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
       {/* Main Content */}
       <div className="lg:pl-64">
