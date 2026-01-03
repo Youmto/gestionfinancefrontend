@@ -20,6 +20,7 @@ export default function Login() {
       if (formData.email && formData.password) {
         console.log('Login successful', formData);
         // Redirect to dashboard would happen here
+        window.location.href = '/dashboard';
       } else {
         setError('Please fill in all fields');
       }

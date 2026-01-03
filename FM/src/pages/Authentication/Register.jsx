@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, TrendingUp, CheckCircle, Clock, XCircle, User, Mail, Lock, DollarSign } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +15,9 @@ export default function Register() {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const navigate = useNavigate();
+
 
   const currencies = [
     { code: 'USD', name: 'US Dollar', symbol: '$' },
@@ -133,7 +137,7 @@ export default function Register() {
             Your account has been successfully created. Please check your email to verify your account before signing in.
           </p>
           <button
-            onClick={() => window.location.href = '#'}
+            onClick={() => navigate('/login')}
             className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition duration-200 shadow-lg"
           >
             Go to Login
