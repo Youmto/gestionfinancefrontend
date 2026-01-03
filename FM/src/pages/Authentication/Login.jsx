@@ -165,7 +165,7 @@ export default function Login() {
                 />
                 <span className="text-sm text-gray-700">Remember me</span>
               </label>
-              <a href="#" className="text-sm text-blue-600 hover:text-blue-700 font-medium transition">
+              <a href="/reset" className="text-sm text-blue-600 hover:text-blue-700 font-medium transition">
                 Forgot password?
               </a>
             </div>
@@ -192,7 +192,7 @@ export default function Login() {
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Don't have an account?{' '}
-              <a href="#" className="text-blue-600 hover:text-blue-700 font-semibold transition">
+              <a href="/register" className="text-blue-600 hover:text-blue-700 font-semibold transition">
                 Create one now
               </a>
             </p>

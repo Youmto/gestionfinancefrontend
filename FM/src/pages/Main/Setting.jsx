@@ -107,7 +107,7 @@ export default function Setting() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} Item="Settings" />
 
       {/* Main Content */}
       <div className="lg:pl-64">

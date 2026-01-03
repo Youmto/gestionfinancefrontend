@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff, CheckCircle, Clock, DollarSign, XCircle, ArrowLeft, TrendingUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Reset() {
   const [step, setStep] = useState('request'); // 'request', 'sent', 'reset', 'success'
@@ -10,6 +11,8 @@ export default function Reset() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate(); 
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -41,10 +44,12 @@ export default function Reset() {
     setIsLoading(true);
     // Simulate API call
     setTimeout(() => {
-      console.log('Reset email sent to:', email);
+      window.alert('Reset email sent to:', email);
       setIsLoading(false);
       setStep('sent');
+      navigate('/reset1');
     }, 1500);
+
   };
 
   const handleResetPassword = () => {
@@ -217,13 +222,13 @@ export default function Reset() {
                     Sending...
                   </span>
                 ) : (
-                  'Send Reset Link'
+                  'Send Reset Code'
                 )}
               </button>
 
               {/* Back to Login */}
               <div className="text-center pt-4">
-                <a href="#" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 font-medium transition">
+                <a href="/login" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 font-medium transition">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Login
                 </a>

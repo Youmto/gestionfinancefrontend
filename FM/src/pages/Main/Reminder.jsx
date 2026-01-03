@@ -265,7 +265,7 @@ export default function Reminder() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} Item={"Reminders"} />
 
       {/* Main Content */}
       <div className="lg:pl-64">
@@ -382,7 +382,7 @@ export default function Reminder() {
                   className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition font-semibold shadow-lg"
                 >
                   <Plus className="w-5 h-5" />
-                  <span>New Reminder</span>
+                  <span>New <span className='hidden sm:inline'>Reminder</span></span>
                 </button>
               </div>
             </div>

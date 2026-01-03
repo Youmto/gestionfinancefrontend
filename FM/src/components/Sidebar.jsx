@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { TrendingUp, CreditCard, Calendar, Bell, X, Home, Users, Clock, Settings, LogOut, ChartColumnStacked } from 'lucide-react';
 
 
-export default function Sidebar({ sidebarOpen, setSidebarOpen }){
-  const [activeItem, setActiveItem] = useState('Dashboard');
+export default function Sidebar({ sidebarOpen, setSidebarOpen, Item = "Dashboard" }) {
+  const [activeItem, setActiveItem] = useState(Item);
 
   const navigation = [
       { name: 'Dashboard', icon: Home, href: '/dashboard' },
@@ -37,7 +37,6 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }){
               <a
                 key={item.name}
                 href={item.href}
-                onClick={() => setActiveItem(item.name)}
                 className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition ${
                   activeItem === item.name
                     ? 'bg-white/20 text-white'

@@ -269,7 +269,7 @@ export default function Categories() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} Item="Categories" />
 
       {/* Main Content */}
       <div className="lg:pl-64">
